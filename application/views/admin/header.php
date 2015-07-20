@@ -19,18 +19,18 @@
         <section class="vbox">
             <header class="dker nav-bar nav-bar-fixed-top">
                 <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav"><i class="fa fa-bars"></i> </a>
-                <a href="#" class="nav-brand" data-toggle="fullscreen">Ansilvex</a>
-                <a class="btn btn-link visible-xs" data-toggle="class:show" data-target=".nav-user"><i class="fa fa-comment-o"></i></a>
+                <a href="#" class="nav-brand" data-toggle="fullscreen"><?php echo !empty($general->logo_text) ? $general->logo_text : 'Admin'; ?></a>
             </header>
             <section>
                 <nav class="nav-primary hidden-xs">
                     <ul class="nav">
-                        <li class="active"><a href="#"><span>Statistici</span></a></li>
-                        <li><a href="#"><span>Categorii</span></a></li>
-                        <li><a href="#"><span>Produse</span></a></li>
-                        <li><a href="#"><span>Copmenzi</span></a></li>
-                        <li><a href="#"><span>Pagini</span></a></li>
-                        <li><a href="#"><span>Iesire</span></a></li>
+                        <li class="<?php echo in_array('dashboard', $this->uri->segment_array()) ? 'active' : ''; ?>"><a href="<?php echo site_url('admin/dashboard'); ?>"><span>Statistici</span></a></li>
+                        <li class="<?php echo in_array('general', $this->uri->segment_array()) ? 'active' : ''; ?>"><a href="<?php echo site_url('admin/general'); ?>"><span>Date generale</span></a></li>
+                        <li class="<?php echo in_array('categories', $this->uri->segment_array()) ? 'active' : ''; ?>"><a href="<?php echo site_url('admin/categories'); ?>"><span>Categorii</span></a></li>
+                        <li class="<?php echo in_array('products', $this->uri->segment_array()) ? 'active' : ''; ?>"><a href="<?php echo site_url('admin/products'); ?>"><span>Produse</span></a></li>
+                        <li class="<?php echo in_array('orders', $this->uri->segment_array()) ? 'active' : ''; ?>"><a href="<?php echo site_url('admin/orders'); ?>"><span>Comenzi</span></a></li>
+                        <li class="<?php echo in_array('pages', $this->uri->segment_array()) ? 'active' : ''; ?>"><a href="<?php echo site_url('admin/pages'); ?>"><span>Pagini</span></a></li>
+                        <li class="confirm"><a href="<?php echo site_url('admin/users/logout'); ?>"><span>Iesire</span></a></li>
                     </ul>
                 </nav>
 
@@ -43,3 +43,32 @@
             </section>
         </section>
     </aside>
+
+    <section id="content">
+        <section class="vbox">
+            <header class="header bg-white b-b"><p></p></header>
+
+            <section class="scrollable wrapper">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <?php if ($this->session->flashdata('success')) { ?>
+                            <div class="alert alert-success">
+                                <button type="button" class="close" data-dismiss="alert">
+                                    <i class="fa fa-times"></i>
+                                </button>
+                                <i class="fa fa-check-sign"></i> <?php echo $this->session->flashdata('success'); ?>
+                            </div>
+                        <?php } ?>
+
+                        <?php if ($this->session->flashdata('error')) { ?>
+                            <div class="alert alert-danger">
+                                <button type="button" class="close" data-dismiss="alert">
+                                    <i class="fa fa-times"></i>
+                                </button>
+                                <i class="fa fa-ban-circle"></i>
+                                <strong>Oh snap!</strong> <?php echo $this->session->flashdata('error'); ?>
+                            </div>
+                        <?php } ?>
+                    </div>
+                </div>
