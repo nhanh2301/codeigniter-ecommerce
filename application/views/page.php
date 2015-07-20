@@ -1,0 +1,1 @@
+Page : <?php echo !empty($page) ? $page : ''; ?>
