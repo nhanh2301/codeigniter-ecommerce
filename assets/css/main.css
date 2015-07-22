@@ -882,7 +882,8 @@ h2.title {
 }
 
 .productinfo img{
-  width: 100%;
+  max-width: 100%;
+  height: 130px;
 }
 
 .productinfo{
@@ -2549,4 +2550,5 @@ div#cursmdcursBox {
 }
 #Cursmd {
     width:100%!important;
+    margin-bottom:30px
 }

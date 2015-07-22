@@ -11,6 +11,7 @@ class Admin extends CI_Controller {
         parent::__construct();
 
         $this->data['general'] = $this->general->get_data();
+        $this->data['categories'] = $this->category->get_data();
 
         if (empty($this->session->userdata['user']) && !in_array('login', $this->uri->segment_array())) {
             redirect('admin/users/login');
@@ -27,5 +28,6 @@ class Frontend extends CI_Controller {
         parent::__construct();
 
         $this->data['general'] = $this->general->get_data();
+        $this->data['categories'] = $this->category->get_data();
     }
 }

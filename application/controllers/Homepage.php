@@ -1,9 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Homepage extends Frontend {
-
-    public $data;
+class Homepage extends Frontend
+{
 
     public function __construct()
     {
@@ -12,8 +11,10 @@ class Homepage extends Frontend {
 
 	public function index()
 	{
-		$this->load->view('header', $this->data);
+		$this->data['popular_products'] = $this->product->get_popular_products();
+
+		$this->load->view('partials/header', $this->data);
 		$this->load->view('homepage', $this->data);
-		$this->load->view('footer', $this->data);
+		$this->load->view('partials/footer', $this->data);
 	}
 }
