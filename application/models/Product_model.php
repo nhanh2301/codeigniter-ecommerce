@@ -52,6 +52,17 @@ class Product_model extends CI_Model {
         return end($data);
     }
 
+    public function record_count() {
+        return $this->db->count_all($this->table);
+    }
+
+    public function fetch_products($limit, $start) {
+        $this->db->limit($limit, $start);
+        $query = $this->db->get($this->table);
+
+        return $query->result();
+    }
+
     public function delete_by_id($id)
     {
         $query = $this->db->delete($this->table, ['id' => $id]);

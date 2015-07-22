@@ -28,6 +28,6 @@ class Frontend extends CI_Controller {
         parent::__construct();
 
         $this->data['general'] = $this->general->get_data();
-        $this->data['categories'] = $this->category->get_data();
+        $this->data['categories'] = $this->category->get_data_with_products();
     }
 }

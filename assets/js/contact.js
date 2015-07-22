@@ -1,18 +1,3 @@
-jQuery(function($) {'use strict',
-
-	var form = $('.contact-form');
-	form.submit(function () {'use strict',
-		$this = $(this);
-		$.post("sendemail.php", $(".contact-form").serialize(),function(result){
-			if(result.type == 'success'){
-				$this.prev().text(result.message).fadeIn().delay(3000).fadeOut();
-			}
-		});
-		return false;
-	});
-
-});
-
 // Google Map Customization
 (function(){
 
@@ -40,50 +25,13 @@ jQuery(function($) {'use strict',
 		animation: google.maps.Animation.DROP,
 		verticalAlign: 'bottom',
 		horizontalAlign: 'center',
-		backgroundColor: '#ffffff',
+		backgroundColor: '#ffffff'
 	});
 
-	var styles = [ 
-
-	{
-		"featureType": "road",
-		"stylers": [
-		{ "color": "" }
-		]
-	},{
-		"featureType": "water",
-		"stylers": [
-		{ "color": "#A2DAF2" }
-		]
-	},{
-		"featureType": "landscape",
-		"stylers": [
-		{ "color": "#ABCE83" }
-		]
-	},{
-		"elementType": "labels.text.fill",
-		"stylers": [
-		{ "color": "#000000" }
-		]
-	},{
-		"featureType": "poi",
-		"stylers": [
-		{ "color": "#2ECC71" }
-		]
-	},{
-		"elementType": "labels.text",
-		"stylers": [
-		{ "saturation": 1 },
-		{ "weight": 0.1 },
-		{ "color": "#111111" }
-		]
-	}
-
-	];
 
 	map.addStyle({
 		styledMapName:"Styled Map",
-		styles: styles,
+		styles: [{"stylers":[{"visibility":"simplified"},{"saturation":20},{"weight":1.2},{"lightness":25}]}],
 		mapTypeId: "map_style"  
 	});
 

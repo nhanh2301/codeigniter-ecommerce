@@ -22,6 +22,21 @@ class Category_model extends CI_Model {
         return $data;
     }
 
+    public function get_data_with_products()
+    {
+        $query = $this->db->get($this->table);
+
+        $data = $query->result();
+
+        foreach ($data as $key => $category)
+        {
+            $count_data = $this->db->get_where('products', ['category' => $category->id]);
+            $category->products = $count_data->num_rows();
+        }
+
+        return $data;
+    }
+
     public function get_data_by_id($id)
     {
         $query = $this->db->get_where($this->table, ['id' => $id]);

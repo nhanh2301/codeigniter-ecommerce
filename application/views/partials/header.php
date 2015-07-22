@@ -28,19 +28,30 @@
                 <div class="col-sm-6">
                     <div class="contactinfo">
                         <ul class="nav nav-pills">
-                            <li><a href="#"><i class="fa fa-phone"></i> +373 22 32 29 30</a></li>
-                            <li><a href="#"><i class="fa fa-envelope"></i> info@ansilvex.md</a></li>
+                            <?php if (!empty($general->mobile)) { ?>
+                                <li><a href="#"><i class="fa fa-phone"></i> <?php echo $general->mobile; ?></a></li>
+                            <?php } ?>
+                            <?php if (!empty($general->telephone)) { ?>
+                                <li><a href="#"><i class="fa fa-phone"></i> <?php echo $general->telephone; ?></a></li>
+                            <?php } ?>
+                            <?php if (!empty($general->email)) { ?>
+                                <li><a href="#"><i class="fa fa-enevelope"></i> <?php echo $general->email; ?></a></li>
+                            <?php } ?>
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="social-icons pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <?php if (!empty($general->link_facebook)) { ?>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <?php } ?>
+                            <?php if (!empty($general->link_linkedin)) { ?>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <?php } ?>
+                            <?php if (!empty($general->link_google)) { ?>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <?php } ?>
                         </ul>
                     </div>
                 </div>
@@ -84,10 +95,10 @@
                     </div>
                     <div class="mainmenu pull-left">
                         <ul class="nav navbar-nav collapse navbar-collapse">
-                            <li><a href="/" class="active">Prima pagina</a></li>
-                            <li><a href="/">Despre noi</a></li>
-                            <li><a href="/livrare">Livrare</a></li>
-                            <li><a href="/contact">Contacteaza-ne</a></li>
+                            <li><a href="<?php echo site_url('products'); ?>" >Produse</a></li>
+                            <li><a href="<?php echo site_url('about'); ?>">Despre noi</a></li>
+                            <li><a href="<?php echo site_url('delivery'); ?>">Livrare</a></li>
+                            <li><a href="<?php echo site_url('contact'); ?>">Contacteaza-ne</a></li>
                         </ul>
                     </div>
                 </div>

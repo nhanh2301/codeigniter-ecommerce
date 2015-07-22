@@ -41,7 +41,7 @@
                         <ul class="nav nav-tabs">
                             <li class="active"><a href="#details" data-toggle="tab">Detalii</a></li>
                             <li><a href="#delivery" data-toggle="tab">Livrare</a></li>
-                            <li><a href="#reviews" data-toggle="tab">Comentarii (5)</a></li>
+                            <li><a href="#reviews" data-toggle="tab">Comentarii <?php echo !empty($comments) ? '('.count($comments).')' : ''; ?></a></li>
                         </ul>
                     </div>
                     <div class="tab-content">
@@ -55,19 +55,26 @@
 
                         <div class="tab-pane fade" id="reviews" >
                             <div class="col-sm-12">
-                                <ul>
-                                    <li><a href=""><i class="fa fa-user"></i>EUGEN</a></li>
-                                    <li><a href=""><i class="fa fa-clock-o"></i>12:41 PM</a></li>
-                                    <li><a href=""><i class="fa fa-calendar-o"></i>31 DEC 2014</a></li>
-                                </ul>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-
+                                <?php if (!empty($comments)) { ?>
+                                    <?php foreach ($comments as $comment) { ?>
+                                        <div class="comment">
+                                            <ul>
+                                                <li><a href=""><i class="fa fa-user"></i><?php echo $comment->user_name; ?></a></li>
+                                                <li><a href=""><i class="fa fa-clock-o"></i><?php echo $comment->date; ?></a></li>
+                                                <li><a href=""><i class="fa fa-calendar-o"></i><?php echo $comment->date; ?></a></li>
+                                            </ul>
+                                            <p><?php echo $comment->message; ?></p>
+                                        </div>
+                                    <?php } ?>
+                                <?php } else { ?>
+                                    <p>La moment nu sunt comentarii adaugate.</p>
+                                <?php } ?>
                                 <br>
 
                                 <div class="add-comment">
                                     <p><b>Adauga un comentariu</b></p>
 
-                                    <form action="#">
+                                    <form action="<?php echo site_url('user/comment'); ?>" method="post">
 										<span>
 											<input type="text" placeholder="<?php echo lang('msg_name'); ?>"/>
 											<input type="email" placeholder="<?php echo lang('msg_email'); ?>"/>
@@ -90,24 +97,9 @@
                         <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="item active">
-
                                     <?php foreach ($recommended_products as $product) { ?>
-                                        <div class="col-sm-4">
-                                            <div class="product-image-wrapper">
-                                                <div class="single-products">
-                                                    <div class="productinfo text-center">
-                                                        <a href="<?php echo site_url(url_title($product->name).'-'.$product->id); ?>">
-                                                            <img src="<?php echo site_url('img.php?src=uploads/'.$product->image.'&h=130'); ?>" alt="<?php echo $product->name.' | '.$general->logo_text; ?>" />
-                                                        </a>
-                                                        <h2><?php echo $product->price; ?> Lei</h2>
-                                                        <a href="<?php echo site_url(url_title($product->name).'-'.$product->id); ?>"><p><?php echo $product->name; ?></p></a>
-                                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Adauga in cos</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <?php $this->load->view('partials/product', ['product' => $product]); ?>
                                     <?php } ?>
-
                                 </div>
                             </div>
                             <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">

@@ -2552,3 +2552,12 @@ div#cursmdcursBox {
     width:100%!important;
     margin-bottom:30px
 }
+.m2meteo2_informer {
+  float:none!important
+}
+
+.m2meteo2_informer:after {
+  content: '';
+  display: block;
+  clear: both;
+}

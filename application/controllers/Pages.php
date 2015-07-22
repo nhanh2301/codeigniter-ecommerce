@@ -15,4 +15,11 @@ class Pages extends Frontend
         $this->load->view('page', $this->data);
         $this->load->view('partials/footer', $this->data);
     }
+
+    public function contact()
+    {
+        $this->load->view('partials/header', $this->data);
+        $this->load->view('contact', $this->data);
+        $this->load->view('partials/footer', $this->data);
+    }
 }
