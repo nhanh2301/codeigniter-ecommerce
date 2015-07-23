@@ -83,6 +83,26 @@ class Product_model extends CI_Model {
         $this->db->insert($this->table, $this);
     }
 
+    public function upload()
+    {
+        if (!empty($_FILES['image'])) {
+            if ($_FILES["image"]["error"] == UPLOAD_ERR_OK) {
+                $tmp_name = $_FILES["image"]["tmp_name"];
+                $name = $_FILES["image"]["name"];
+                $name = substr(md5($name), 0, 3) . substr(time(), 0, 3) . '-' . strtolower($name);
+
+                $path = "uploads/";
+
+                @mkdir($path, 0777, true);
+
+                if (move_uploaded_file($tmp_name, $path . $name)) {
+                    return $name;
+                }
+            }
+        }
+        return false;
+    }
+
     public function update()
     {
         $this->name             = $_POST['name'];
@@ -95,21 +115,5 @@ class Product_model extends CI_Model {
         if (empty($this->image)) unset($this->image);
 
         $this->db->update($this->table, $this, "id = ".$_POST['id']);
-    }
-
-    public function upload()
-    {
-        if (!empty($_FILES['image'])) {
-            if ($_FILES["image"]["error"] == UPLOAD_ERR_OK) {
-                $tmp_name = $_FILES["image"]["tmp_name"];
-                $name = $_FILES["image"]["name"];
-                $name = substr(md5($name), 0, 3).substr(time(), 0, 3).'-'.strtolower($name);
-
-                if (move_uploaded_file($tmp_name, "uploads/$name")) {
-                    return $name;
-                }
-            }
-        }
-        return false;
     }
 }

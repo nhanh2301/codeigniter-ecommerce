@@ -70,10 +70,13 @@
                 <div class="col-sm-8">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="#"><i class="fa fa-user"></i> Contul tau</a></li>
-                            <li><a href="#"><i class="fa fa-crosshairs"></i> Cumpara</a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i> Cosul tau</a></li>
-                            <li><a href="#"><i class="fa fa-lock"></i> Logare</a></li>
+                            <li><a href="<?php echo site_url('profile'); ?>"><i class="fa fa-user"></i> Contul tau</a>
+                            </li>
+                            <li><a href="<?php echo site_url('cart'); ?>"><i class="fa fa-shopping-cart"></i> Cosul tau
+                                    <span
+                                        class="cart-items"><?php echo !empty($cart) ? '(' . count($cart) . ')' : ''; ?></span></a>
+                            </li>
+                            <li><a href="<?php echo site_url('login'); ?>"><i class="fa fa-lock"></i> Logare</a></li>
                         </ul>
                     </div>
                 </div>

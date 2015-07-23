@@ -26,6 +26,9 @@ class Frontend extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
+        $this->load->helper('cookie');
+
+        $this->data['cart'] = explode(',', get_cookie('products'));
 
         $this->data['general'] = $this->general->get_data();
         $this->data['categories'] = $this->category->get_data_with_products();

@@ -61,4 +61,18 @@ class Products extends Frontend
         $this->load->view('product', $this->data);
         $this->load->view('partials/footer', $this->data);
     }
+
+    public function cart()
+    {
+        $this->data['products'] = array();
+        if (!empty($this->data['cart'])) {
+            foreach ($this->data['cart'] as $id) {
+                $this->data['products'][] = $this->product->get_data_by_id($id);
+            }
+        }
+
+        $this->load->view('partials/header', $this->data);
+        $this->load->view('cart', $this->data);
+        $this->load->view('partials/footer', $this->data);
+    }
 }

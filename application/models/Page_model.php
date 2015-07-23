@@ -2,7 +2,6 @@
 class Page_model extends CI_Model {
 
     public $id;
-    public $url;
     public $title;
     public $content;
     public $order;
