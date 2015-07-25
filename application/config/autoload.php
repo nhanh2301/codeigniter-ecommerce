@@ -138,10 +138,10 @@ $autoload['language'] = array();
 */
 
 $autoload['model'] = array(
-    'General_model' => 'general',
-    'Category_model' => 'category',
-    'Order_model' => 'order',
-    'Page_model' => 'page',
-    'Product_model' => 'product',
-    'User_model' => 'user'
+    'General_model' => 'general_model',
+    'Category_model' => 'category_model',
+    'Order_model' => 'order_model',
+    'Page_model' => 'page_model',
+    'Product_model' => 'product_model',
+    'User_model' => 'user_model'
 );

@@ -2,32 +2,42 @@
     <div class="col-lg-12">
         <section class="panel">
             <header class="panel-heading">
-                <span class="h4">Cateogrii</span>
+                <span class="h4">Pagini</span>
+                <a class="btn btn-xs btn-success pull-right"
+                   href="<?php echo site_url('admin/pages/create'); ?>">Adauga</a>
             </header>
-            <table class="table m-b-none text-sm">
-                <thead>
-                <tr>
-                    <th>Nume</th>
-                    <th>Produse</th>
-                    <th>Data adaugata</th>
-                    <th width="70"></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Produse de bucatarie</td>
-                    <td><a href="#">20</a></td>
-                    <td>15:30, 20 Iulie 2015</td>
-                    <td><a href="#" class="btn btn-xs btn-info">Editeaza</a></td>
-                </tr>
-                <tr>
-                    <td>Cadouri</td>
-                    <td><a href="#">7</a></td>
-                    <td>15:30, 20 Iulie 2015</td>
-                    <td><a href="#" class="btn btn-xs btn-info">Editeaza</a></td>
-                </tr>
-                </tbody>
-            </table>
+
+            <div class="panel-body">
+                <?php if (!empty($pages)) { ?>
+                    <table class="table table-responsive m-b-none text-sm">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>Titlu</th>
+                            <th width="599">Descriere</th>
+                            <th width="120">Data adaugata</th>
+                            <th width="100"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach ($pages as $page) { ?>
+                            <tr>
+                                <td><?php echo !empty($page->image) ? '<img height="25" src="' . site_url('img.php?src=uploads/' . $page->image) . '">' : ''; ?></td>
+                                <td><?php echo $page->title; ?></td>
+                                <td><?php echo $page->content; ?></td>
+                                <td><?php echo date('d M Y', strtotime($page->date)); ?></td>
+                                <td><a href="<?php echo site_url('admin/products/edit/' . $page->id); ?>"
+                                       class="btn btn-xs btn-info">Editeaza</a></td>
+                            </tr>
+                        <?php } ?>
+                        </tbody>
+                    </table>
+                <?php } else { ?>
+                    <div class="alert alert-warning">
+                        <p>La moment nu sunt pagini.</p>
+                    </div>
+                <?php } ?>
+            </div>
         </section>
     </div>
 </div>

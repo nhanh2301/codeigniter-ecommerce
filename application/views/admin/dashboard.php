@@ -2,13 +2,13 @@
     <div class="col-lg-2">
         <section class="panel no-borders hbox">
             <aside class="bg-primary r-l text-center v-middle">
-                <a href="#">
+                <a href="<?php echo site_url('admin/categories/create'); ?>">
                     <div class="wrapper"><i class="fa fa-plus fa-2x"></i></div>
                 </a>
             </aside>
             <aside>
                 <div class="wrapper text-center">
-                    <p class="h1">4</p>
+                    <p class="h1"><?php echo $categories_total; ?></p>
                     <span>Categorii</span>
                 </div>
             </aside>
@@ -17,13 +17,13 @@
     <div class="col-lg-2">
         <section class="panel no-borders hbox">
             <aside class="bg-success r-l text-center v-middle">
-                <a href="#">
+                <a href="<?php echo site_url('admin/products/create'); ?>">
                     <div class="wrapper"><i class="fa fa-plus fa-2x"></i></div>
                 </a>
             </aside>
             <aside>
                 <div class="wrapper text-center">
-                    <p class="h1">254</p>
+                    <p class="h1"><?php echo $products_total; ?></p>
                     <span>Produse</span>
                 </div>
             </aside>
@@ -31,30 +31,20 @@
     </div>
     <div class="col-lg-4">
         <section class="panel no-borders hbox">
-            <aside class="bg-warning r-l text-center v-middle">
-                <a href="#">
-                    <div class="wrapper"><i class="fa fa-plus fa-2x"></i></div>
-                </a>
-            </aside>
             <aside>
                 <div class="wrapper text-center">
-                    <p class="h1">32 vizitatori</p>
-                    <span>Astazi</span>
+                    <p class="h1"><?php echo $orders_today_total; ?></p>
+                    <span>Comenzi astazi</span>
                 </div>
             </aside>
         </section>
     </div>
     <div class="col-lg-4">
         <section class="panel no-borders hbox">
-            <aside class="bg-info r-l text-center v-middle">
-                <a href="#">
-                    <div class="wrapper"><i class="fa fa-plus fa-2x"></i></div>
-                </a>
-            </aside>
             <aside>
                 <div class="wrapper text-center">
-                    <p class="h1">750 vizitatori</p>
-                    <span>Total</span>
+                    <p class="h1"><?php echo $orders_total; ?></p>
+                    <span>Comenzi total</span>
                 </div>
             </aside>
         </section>
@@ -65,34 +55,47 @@
     <div class="col-lg-12">
         <section class="panel">
             <header class="panel-heading">
-                <span class="label bg-danger pull-right">4 neprocesate</span>
-                <span class="h4">Ultimele comenzi</span>
+                <span class="label bg-danger pull-right"><!--4 neprocesate--></span>
+                <span class="h4">Ultimele 20 comenzi</span>
             </header>
             <table class="table m-b-none text-sm">
                 <thead>
                     <tr>
-                        <th>Produs</th>
-                        <th>Cantitate</th>
+                        <th>Produse</th>
                         <th>Total</th>
-                        <th>Data inregistrata</th>
+                        <th>Date de contact</th>
+                        <th>Mesaj</th>
+                        <th>Data comenzii</th>
                         <th width="70"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="alert-danger">
-                        <td><a href="#">BINGO SOFT 2L LAVANDA</a></td>
-                        <td><a href="#">20 bucati</a></td>
-                        <td>450 Lei</td>
-                        <td>15:30, 20 Iulie 2015</td>
-                        <td><a href="#" class="btn btn-xs btn-info">Vezi</a></td>
-                    </tr>
-                    <tr class="alert-success">
-                        <td><a href="#">BINGO SOFT 2L LAVANDA</a></td>
-                        <td><a href="#">6 bucati</a></td>
-                        <td>150 Lei</td>
-                        <td>11:30, 20 Iulie 2015</td>
-                        <td><a href="#" class="btn btn-xs btn-info">Vezi</a></td>
-                    </tr>
+                <?php if (!empty($orders)) { ?>
+                    <?php foreach ($orders as $order) { ?>
+                        <tr class="alert-<?php echo $order->processed == Order_model::PROCESSED_NEW ? 'warning' : 'success'; ?>">
+                            <td>
+                                <?php foreach ($order->order_array['products'] as $product) { ?>
+                                    <?php echo $product['name'] . ' x' . $product['quantity'] . ' = ' . $product['total'] . ' Lei'; ?>
+                                    <br>
+                                <?php } ?>
+                            </td>
+                            <td><?php echo $order->order_array['total']; ?> Lei</td>
+                            <td>
+                                <?php echo !empty($order->order_array['name']) ? 'Nume: ' . $order->order_array['name'] . '<br>' : ''; ?>
+                                <?php echo !empty($order->order_array['email']) ? 'Email: ' . $order->order_array['email'] . '<br>' : ''; ?>
+                                <?php echo !empty($order->order_array['telephone']) ? 'Telefon: ' . $order->order_array['telephone'] . '<br>' : ''; ?>
+                                <?php echo !empty($order->order_array['address']) ? 'Adresa: ' . $order->order_array['address'] . '<br>' : ''; ?>
+                            </td>
+                            <td><?php echo $order->order_array['message']; ?></td>
+                            <td><?php echo date('H:i, d M Y', strtotime($order->date)); ?></td>
+                            <td>
+                                <button type="submit" name="processed" class="btn btn-success"
+                                        value="<?php echo Order_model::PROCESSED_COMPLETED; ?>">Finisare
+                                </button>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                <?php } ?>
                 </tbody>
             </table>
         </section>

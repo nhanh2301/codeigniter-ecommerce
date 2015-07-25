@@ -18,7 +18,7 @@ class General extends Admin {
     public function save()
     {
         if (!empty($_POST)) {
-            $this->general->save();
+            $this->general_model->save();
 
             $this->session->set_flashdata('success', 'Datele generale au fost salvate cu success!');
         }

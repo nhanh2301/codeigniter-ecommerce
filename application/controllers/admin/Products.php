@@ -12,7 +12,7 @@ class Products extends Admin {
 
     public function index()
     {
-        $this->data['products'] = $this->product->get_data();
+        $this->data['products'] = $this->product_model->get_data();
 
         $this->load->view('admin/header', $this->data);
         $this->load->view('admin/products', $this->data);
@@ -28,7 +28,7 @@ class Products extends Admin {
 
     public function edit($id)
     {
-        $this->data['product'] = $this->product->get_data_by_id($id);
+        $this->data['product'] = $this->product_model->get_data_by_id($id);
 
         $this->load->view('admin/header', $this->data);
         $this->load->view('admin/product', $this->data);
@@ -37,7 +37,7 @@ class Products extends Admin {
 
     public function delete($id)
     {
-        $this->product->delete_by_id($id);
+        $this->product_model->delete_by_id($id);
         $this->session->set_flashdata('success', 'Produsul dat a fost sters cu succes.');
         redirect('admin/products');
     }
@@ -45,10 +45,10 @@ class Products extends Admin {
     public function save()
     {
         if (!empty($_POST) && !empty($_POST['id'])) {
-            $this->product->update();
+            $this->product_model->update();
             $this->session->set_flashdata('success', 'Produsul a fost editat cu succes.');
         } elseif (!empty($_POST)) {
-            $this->product->insert();
+            $this->product_model->insert();
             $this->session->set_flashdata('success', 'Produsul a fost adaugat cu succes.');
         }
 

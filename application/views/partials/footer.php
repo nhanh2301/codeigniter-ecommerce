@@ -52,7 +52,9 @@
     <div class="footer-bottom">
         <div class="container">
             <div class="row">
-                <p class="pull-left">© 2015 Ansilvex.</p>
+                <p class="pull-left">
+                    © <?php echo date('Y', time()); ?> <?php echo !empty($general->logo_text) ? $general->logo_text : ''; ?>
+                    .</p>
             </div>
         </div>
     </div>

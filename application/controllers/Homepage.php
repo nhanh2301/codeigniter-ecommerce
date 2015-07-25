@@ -11,7 +11,7 @@ class Homepage extends Frontend
 
 	public function index()
 	{
-		$this->data['popular_products'] = $this->product->get_popular_products();
+		$this->data['popular_products'] = $this->product_model->get_popular_products();
 
 		$this->load->view('partials/header', $this->data);
 		$this->load->view('homepage', $this->data);

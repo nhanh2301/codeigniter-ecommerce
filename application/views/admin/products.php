@@ -8,17 +8,17 @@
 
             <div class="panel-body">
                 <?php if (!empty($products)) { ?>
-                    <table class="table m-b-none text-sm">
+                    <table class="table table-responsive m-b-none text-sm">
                         <thead>
                         <tr>
                             <th></th>
                             <th>Nume</th>
-                            <th>Descriere</th>
+                            <th width="599">Descriere</th>
                             <th>Categorie</th>
                             <th>Pret</th>
-                            <th>Data adaugata</th>
-                            <th>Status</th>
-                            <th width="70"></th>
+                            <th width="120">Data adaugata</th>
+                            <th width="100">Status</th>
+                            <th width="100"></th>
                         </tr>
                         </thead>
                         <tbody>

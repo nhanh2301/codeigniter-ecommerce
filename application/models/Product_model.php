@@ -8,6 +8,7 @@ class Product_model extends CI_Model {
     public $image;
     public $active;
     public $date;
+    public $views;
 
     private $table = 'products';
 
@@ -22,6 +23,19 @@ class Product_model extends CI_Model {
         $this->db->select('p.*, c.name as category_name');
         $this->db->from($this->table.' p');
         $this->db->join('categories c', 'p.category = c.id');
+        $query = $this->db->get();
+
+        $data = $query->result();
+
+        return $data;
+    }
+
+    public function get_data_by_category($id)
+    {
+        $this->db->select('p.*, c.name as category_name');
+        $this->db->from($this->table . ' p');
+        $this->db->join('categories c', 'p.category = c.id');
+        $this->db->where('p.category', $id);
         $query = $this->db->get();
 
         $data = $query->result();
@@ -48,6 +62,19 @@ class Product_model extends CI_Model {
         $query = $this->db->get_where($this->table, ['id' => $id]);
 
         $data = $query->result();
+
+        return end($data);
+    }
+
+    public function update_views($id)
+    {
+        $query = $this->db->get_where($this->table, ['id' => $id]);
+        $result = $query->result();
+        $data = end($result);
+
+        $views = $data->views + 1;
+
+        $this->db->update($this->table, ['views' => $views], "id = " . $id);
 
         return end($data);
     }

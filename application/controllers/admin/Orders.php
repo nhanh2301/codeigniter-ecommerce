@@ -12,6 +12,10 @@ class Orders extends Admin {
 
     public function index()
     {
+        $this->data['orders'] = $this->order_model->get_latest();
+
+        print_r($this->data['orders']);
+
         $this->load->view('admin/header', $this->data);
         $this->load->view('admin/orders', $this->data);
         $this->load->view('admin/footer', $this->data);

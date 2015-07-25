@@ -2561,3 +2561,10 @@ div#cursmdcursBox {
   display: block;
   clear: both;
 }
+
+.cart_quantity_up,
+.cart_quantity_down,
+.cart_quantity_delete {
+  cursor: pointer;
+  line-height: 27px;
+}

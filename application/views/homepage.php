@@ -24,7 +24,6 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <img src="/assets/images/home/girl1.jpg" class="girl img-responsive" alt="" />
-                                        <img src="/assets/images/home/pricing.png"  class="pricing" alt="" />
                                     </div>
                                 </div>
                                 <div class="item">
@@ -36,7 +35,6 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <img src="/assets/images/home/girl2.jpg" class="girl img-responsive" alt="" />
-                                        <img src="/assets/images/home/pricing.png"  class="pricing" alt="" />
                                     </div>
                                 </div>
                             </div>

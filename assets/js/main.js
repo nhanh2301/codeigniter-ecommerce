@@ -90,4 +90,48 @@ $(document).ready(function(){
 
 		return false;
 	});
+
+	function total() {
+		var total = 0;
+		$('tr').find('.cart_total_price').each(function () {
+			total += parseInt($(this).data('price'));
+		});
+
+		$('.total_area').find('.total').html(total + ' Lei');
+	}
+
+	$('.cart_quantity_up').click(function () {
+		var $up = $(this),
+			$input = $up.parents('.cart_quantity_button').find('input'),
+			current_quantity = parseInt($input.val()),
+			$tr = $input.parents('tr'),
+			price = $tr.data('price'),
+			new_quantity = current_quantity + 1,
+			product_total = price * new_quantity;
+
+		$input.val(new_quantity);
+		$tr.find('.cart_total_price').data('price', product_total).html(product_total + ' Lei');
+
+		total();
+	});
+	$('.cart_quantity_down').click(function () {
+		var $up = $(this),
+			$input = $up.parents('.cart_quantity_button').find('input'),
+			current_quantity = parseInt($input.val()),
+			$tr = $input.parents('tr'),
+			price = $tr.data('price'),
+			new_quantity = current_quantity - 1,
+			product_total = price * new_quantity;
+
+		if (new_quantity >= 1) {
+			$input.val(current_quantity - 1);
+			$tr.find('.cart_total_price').data('price', product_total).html(product_total + ' Lei');
+		}
+
+		total();
+	});
+	$('.cart_quantity_delete').click(function () {
+		$(this).parents('tr').remove();
+	});
+	total();
 });

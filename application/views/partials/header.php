@@ -35,7 +35,11 @@
                                 <li><a href="#"><i class="fa fa-phone"></i> <?php echo $general->telephone; ?></a></li>
                             <?php } ?>
                             <?php if (!empty($general->email)) { ?>
-                                <li><a href="#"><i class="fa fa-enevelope"></i> <?php echo $general->email; ?></a></li>
+                                <li><a href="#"><i class="fa fa-envelope"></i> <?php echo $general->email; ?></a></li>
+                            <?php } ?>
+                            <?php if (!empty($general->address)) { ?>
+                                <li><a href="#"><i class="fa fa-street-view"></i> <?php echo $general->address; ?></a>
+                                </li>
                             <?php } ?>
                         </ul>
                     </div>
@@ -65,6 +69,18 @@
                 <div class="col-sm-4">
                     <div class="logo pull-left">
                         <a href="/" style="font-size: 30px;color: #65AE17;">Ansilvex</a>
+                    </div>
+                    <div class="btn-group pull-right">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+                                Limba
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Romana</a></li>
+                                <li><a href="#">Rusa</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="col-sm-8">
