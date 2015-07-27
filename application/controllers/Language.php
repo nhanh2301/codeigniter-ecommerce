@@ -10,6 +10,6 @@ class Language extends CI_Controller
     function change($language = "") {
         $language = !empty($language) ? $language : "romanian";
         $this->session->set_userdata('site_lang', $language);
-        redirect(base_url());
+        redirect($_SERVER['HTTP_REFERER']);
     }
 }

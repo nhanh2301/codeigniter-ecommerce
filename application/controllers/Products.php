@@ -58,9 +58,10 @@ class Products extends Frontend
 
         $this->pagination->initialize($this->data['config']);
 
-
         $this->data['products'] = $this->product_model->get_data_by_category($id);
         $this->data['links'] = $this->pagination->create_links();
+
+        $this->data['main_category'] = $this->category_model->get_data_by_id($id);
 
         $this->load->view('partials/header', $this->data);
         $this->load->view('products', $this->data);
@@ -148,7 +149,7 @@ class Products extends Frontend
 
                     redirect('success');
                 } else {
-                    $this->session->set_flashdata('error', 'Mesajul dumneavoastra nu a fost trimit. Va rugam incercati mai tirziu.');
+                    $this->session->set_flashdata('error', 'Mesajul dumneavoastra nu a fost trimis. Va rugam incercati mai tirziu.');
                     $this->cart();
                 }
             } else {
@@ -165,10 +166,13 @@ class Products extends Frontend
     {
         $this->data['products'] = array();
         if (!empty($this->data['cart'])) {
-            foreach ($this->data['cart'] as $id) {
-                $product = $this->product_model->get_data_by_id($id);
-                if (!empty($product)) {
-                    $this->data['products'][] = $product;
+            foreach ($this->data['cart'] as $p) {
+                if (!empty($p['id']) && !empty($p['quantity'])) {
+                    $product = $this->product_model->get_data_by_id($p['id']);
+                    if (!empty($product)) {
+                        $product->quantity = $p['quantity'];
+                        $this->data['products'][$product->id] = $product;
+                    }
                 }
             }
         }

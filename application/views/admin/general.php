@@ -15,6 +15,11 @@
                         <input name="General[logo_file]" type="file" class="form-control">
                     </div>
                     <div class="form-group">
+                        <label>Despre</label>
+                        <textarea name="General[about]" class="form-control"
+                                  rows="3"><<?php echo !empty($general->about) ? $general->about : ''; ?></textarea>
+                    </div>
+                    <div class="form-group">
                         <label>Telefon</label>
                         <input name="General[telephone]"
                                value="<?php echo !empty($general->telephone) ? $general->telephone : ''; ?>" type="text"
@@ -30,6 +35,18 @@
                         <label>Adresa</label>
                         <input name="General[address]"
                                value="<?php echo !empty($general->address) ? $general->address : ''; ?>" type="text"
+                               class="form-control" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label>Latitudinea Mapa</label>
+                        <input name="General[lat]"
+                               value="<?php echo !empty($general->lat) ? $general->lat : ''; ?>" type="text"
+                               class="form-control" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label>Longitudinea Mapa</label>
+                        <input name="General[long]"
+                               value="<?php echo !empty($general->long) ? $general->long : ''; ?>" type="text"
                                class="form-control" placeholder="">
                     </div>
                     <div class="form-group">

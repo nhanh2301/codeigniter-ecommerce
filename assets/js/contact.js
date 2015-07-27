@@ -1,15 +1,19 @@
 // Google Map Customization
 (function(){
 
-	var map;
+	var map,
+		el = '#gmap',
+		$el = $(el),
+		lat = $el.data('lat'),
+		long = $el.data('long');
 
 	map = new GMaps({
-		el: '#gmap',
-		lat: 43.1580159,
-		lng: -77.6030777,
+		el: el,
+		lat: lat,
+		lng: long,
 		scrollwheel:false,
-		zoom: 14,
-		zoomControl : false,
+		zoom: 16,
+		zoomControl: true,
 		panControl : false,
 		streetViewControl : false,
 		mapTypeControl: false,
@@ -17,10 +21,10 @@
 		clickable: false
 	});
 
-	var image = 'images/map-icon.png';
+	var image = '/assets/images/map-icon.png';
 	map.addMarker({
-		lat: 43.1580159,
-		lng: -77.6030777,
+		lat: lat,
+		lng: long,
 		// icon: image,
 		animation: google.maps.Animation.DROP,
 		verticalAlign: 'bottom',
@@ -28,12 +32,12 @@
 		backgroundColor: '#ffffff'
 	});
 
-
+	/*
 	map.addStyle({
 		styledMapName:"Styled Map",
-		styles: [{"stylers":[{"visibility":"simplified"},{"saturation":20},{"weight":1.2},{"lightness":25}]}],
-		mapTypeId: "map_style"  
+	 styles: [{"stylers":[{"visibility":"simplified"},{"saturation":10},{"weight":0.8},{"lightness":15}]}],
+	 mapTypeId: "map_style"
 	});
 
-	map.setStyle("map_style");
+	 map.setStyle("map_style");*/
 }());

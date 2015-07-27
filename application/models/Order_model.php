@@ -57,4 +57,16 @@ class Order_model extends CI_Model {
 
         return end($data);
     }
+
+    public function get_data()
+    {
+        $query = $this->db->get($this->table);
+        $orders = $query->result();
+
+        foreach ($orders as $order) {
+            $order->order_array = unserialize($order->order_array);
+        }
+
+        return $orders;
+    }
 }

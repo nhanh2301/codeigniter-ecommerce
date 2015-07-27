@@ -52,6 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'homepage';
 $route['success'] = 'products/success';
 $route['cart'] = 'products/cart';
+$route['(:any)/(:num)'] = 'pages/index/$2';
 $route['products/(:num)'] = 'products/index/$1';
 $route['products'] = 'products/index';
 $route['(:any)-(:num)'] = 'products/product/$2';

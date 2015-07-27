@@ -24,9 +24,9 @@
                             <tr>
                                 <td><?php echo !empty($page->image) ? '<img height="25" src="' . site_url('img.php?src=uploads/' . $page->image) . '">' : ''; ?></td>
                                 <td><?php echo $page->title; ?></td>
-                                <td><?php echo $page->content; ?></td>
+                                <td><?php echo character_limiter($page->content, 300); ?></td>
                                 <td><?php echo date('d M Y', strtotime($page->date)); ?></td>
-                                <td><a href="<?php echo site_url('admin/products/edit/' . $page->id); ?>"
+                                <td><a href="<?php echo site_url('admin/pages/edit/' . $page->id); ?>"
                                        class="btn btn-xs btn-info">Editeaza</a></td>
                             </tr>
                         <?php } ?>

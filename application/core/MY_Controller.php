@@ -28,9 +28,19 @@ class Frontend extends CI_Controller {
         $this->load->helper('cookie');
 
         $cookie_products = get_cookie('products');
-        $this->data['cart'] = !empty($cookie_products) ? explode(',', $cookie_products) : [];
+        $cookie_products = !empty($cookie_products) ? explode(',', $cookie_products) : [];
+
+        if (!empty($cookie_products)) {
+            foreach ($cookie_products as $cp) {
+                $exploded_cp = explode('-', $cp);
+                if (!empty($exploded_cp[0]) && !empty($exploded_cp[1])) {
+                    $this->data['cart'][$exploded_cp[0]] = ['id' => $exploded_cp[0], 'quantity' => $exploded_cp[1]];
+                }
+            }
+        }
 
         $this->data['general'] = $this->general_model->get_data();
         $this->data['categories'] = $this->category_model->get_data_with_products();
+        $this->data['pages'] = $this->page_model->get_data();
     }
 }

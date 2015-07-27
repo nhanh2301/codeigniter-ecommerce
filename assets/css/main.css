@@ -137,7 +137,7 @@ a#scrollUp i{
 }
 
 .header-middle .container .row {
-  border-bottom: 1px solid #f5f5f5;
+  border-bottom: 1px solid #63A71B;
   margin-left: 0;
   margin-right: 0;
   padding-bottom: 20px;
@@ -162,20 +162,15 @@ a#scrollUp i{
 }
 
 .usa:hover {
-	background:#65AE17;
-	color:#fff;
-	border-color:#65AE17;
+  background-color: #fff;
+  border-color: #ccc;
+  color: #83807b;
 }
 
 .usa:active, .usa.active {
-  background: none repeat scroll 0 0 #65AE17;
+  background: #fff !important;
   box-shadow: inherit;
   outline: 0 none;
-}
-
-.btn-group.open .dropdown-toggle {
-  background: rgba(0, 0, 0, 0);
-  box-shadow: none;
 }
 
 .dropdown-menu  li  a:hover, .dropdown-menu  li  a:focus {
@@ -198,25 +193,30 @@ a#scrollUp i{
 
 
 .shop-menu ul li a {
-  background: #FFFFFF;
-  color: #696763;
+  color: #fff;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   font-weight: 300;
-  padding:0;
+  padding: 0;
   padding-right: 0;
   margin-top: 10px;
 }
 
-
-.shop-menu ul li a i{
-	margin-right:3px;
+#header {
+  background: #65AE17;
+  margin-bottom: 50px;
 }
 
+.logo a {
+  font-size: 32px;
+  color: #FFFFFF;
+  margin-top: 0px;
+  display: block;
+  margin-bottom: -4px;
+}
 
-.shop-menu ul li a:hover {
-	color:#65AE17;
-	background:#fff;
+.shop-menu ul li a i {
+  margin-right: 3px;
 }
 
 
@@ -239,7 +239,7 @@ a#scrollUp i{
 }
 
 .mainmenu ul li a {
-	color: #696763;
+  color: #fff;
 	font-family: 'Roboto', sans-serif;
 	font-size: 17px;
 	font-weight: 300;
@@ -249,7 +249,6 @@ a#scrollUp i{
 
 .mainmenu ul li a:hover, .mainmenu ul li a.active,  .shop-menu ul li a.active{
 	background:none;
-	color:#65AE17;
 }
 
 .search_box input {
@@ -2537,7 +2536,9 @@ h2.title {
     display: block;
     padding: 7px 0;
 }
-.category-products .cp-category:hover {
+
+.category-products .cp-category:hover,
+.category-products .cp-category.active {
     color: #65AE17!important
 }
 .category-products .cp-category:first-of-type {
@@ -2567,4 +2568,47 @@ div#cursmdcursBox {
 .cart_quantity_delete {
   cursor: pointer;
   line-height: 27px;
+}
+
+.messages {
+
+}
+
+.messages .message {
+  color: #fff;
+  background-color: #888;
+  position: fixed;
+  top: 30px;
+  right: 50px;
+  min-width: 300px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  max-width: 400px;
+  display: none;
+  z-index: 999
+}
+
+.messages .message p {
+  margin: 0;
+  padding: 0
+}
+
+.messages .message.show {
+  display: block
+}
+
+.messages .message.error {
+  background: #c0392b
+}
+
+.messages .message.success {
+  background: #65AE17
+}
+
+.response-area {
+  margin-top: 100px;
+}
+
+.response-area .media-body {
+  margin: 0 20px;
 }

@@ -24,12 +24,14 @@
                         <?php foreach ($products as $product) { ?>
                             <tr data-price="<?php echo $product->price; ?>">
                                 <td class="cart_product">
-                                    <a href=""><img
+                                    <a href="<?php echo site_url(url_title($product->name) . '-' . $product->id); ?>"><img
                                             src="<?php echo site_url('img.php?src=uploads/' . $product->image . '&h=130'); ?>"
                                             alt=""></a>
                                 </td>
                                 <td class="cart_description">
-                                    <h4><a href=""><?php echo $product->name; ?></a></h4>
+                                    <h4>
+                                        <a href="<?php echo site_url(url_title($product->name) . '-' . $product->id); ?>"><?php echo $product->name; ?></a>
+                                    </h4>
 
                                     <p>Vizualizari: <?php echo $product->views; ?></p>
                                 </td>
@@ -40,14 +42,15 @@
                                     <div class="cart_quantity_button">
                                         <a class="cart_quantity_up"> + </a>
                                         <input class="cart_quantity_input" type="text"
-                                               name="products[<?php echo $product->id; ?>][quantity]" value="1"
+                                               name="products[<?php echo $product->id; ?>][quantity]"
+                                               value="<?php echo $product->quantity; ?>"
                                                autocomplete="off" size="4">
                                         <a class="cart_quantity_down"> - </a>
                                     </div>
                                 </td>
                                 <td class="cart_total">
                                     <p class="cart_total_price"
-                                       data-price="<?php echo $product->price; ?>"><?php echo $product->price; ?>
+                                       data-price="<?php echo $product->price * $product->quantity; ?>"><?php echo $product->price * $product->quantity; ?>
                                         Lei</p>
                                 </td>
                                 <td class="cart_delete">
@@ -140,7 +143,6 @@
                             <?php if (!empty($general->delivery)) { ?>
                                 <li>Livrare <span><?php echo $general->delivery; ?></span></li>
                             <?php } ?>
-
 
                             <li>Total <span class="total">N / A</span></li>
                         </ul>

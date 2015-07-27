@@ -18,20 +18,27 @@
                         <div class="product-information">
                             <h2><?php echo $product->name; ?></h2>
                             <p>Vizualizari: <?php echo $product->views; ?></p>
-                            <img src="/assets/images/product-details/rating.png" alt="" />
+
                             <span style="display:block">
                                 <span style="float:none"><?php echo $product->price; ?> Lei / bucata</span>
                             </span>
-                            <span>
-                                <label>Contitatea:</label>
-                                <input type="text" value="3" />
-                                <button type="button" class="btn btn-fefault cart">
+                            <span style="margin-top:5px">
+                                <label style="font-size:22px">Contitatea:</label>
+                                <input type="text" value="1" class="quantity"/>
+                                <br>
+                                <button type="button" class="btn cart add-to-cart" data-id="<?php echo $product->id; ?>"
+                                        style="color:#fff!important;font-size: 26px;margin: 5px 0 20px 0;">
                                     <i class="fa fa-shopping-cart"></i>
                                     Adauga in cos
                                 </button>
                             </span>
                             <p><b>Disponibilitate:</b> <?php echo $product->active ? 'In stoc' : 'Nu este in stoc'; ?></p>
-                            <p><b>Brand:</b> Gilette</p>
+                            <?php if (!empty($filters)) { ?>
+                                <?php foreach ($filters as $filter) { ?>
+                                    <p><b><?php echo $filter->category_name; ?></b> <?php echo $filter->filter_name; ?>
+                                    </p>
+                                <?php } ?>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
@@ -59,9 +66,13 @@
                                     <?php foreach ($comments as $comment) { ?>
                                         <div class="comment">
                                             <ul>
-                                                <li><a href=""><i class="fa fa-user"></i><?php echo $comment->user_name; ?></a></li>
-                                                <li><a href=""><i class="fa fa-clock-o"></i><?php echo $comment->date; ?></a></li>
-                                                <li><a href=""><i class="fa fa-calendar-o"></i><?php echo $comment->date; ?></a></li>
+                                                <li><i class="fa fa-user"></i><?php echo $comment->user_name; ?></li>
+                                                <li>
+                                                    <i class="fa fa-clock-o"></i> <?php echo date('H : i', strtotime($comment->date)); ?>
+                                                </li>
+                                                <li>
+                                                    <i class="fa fa-calendar"></i> <?php echo date('d m, Y', strtotime($comment->date)); ?>
+                                                </li>
                                             </ul>
                                             <p><?php echo $comment->message; ?></p>
                                         </div>
@@ -80,7 +91,7 @@
 											<input type="email" placeholder="<?php echo lang('msg_email'); ?>"/>
 										</span>
                                         <textarea name="message" placeholder="<?php echo lang('msg_message'); ?>"></textarea>
-                                        <b>Rating: </b> <img src="/assets/images/product-details/rating.png" alt="" />
+
                                         <button type="button" class="btn btn-default pull-right"><?php echo lang('msg_send'); ?></button>
                                     </form>
                                 </div>

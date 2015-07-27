@@ -19,13 +19,35 @@
     <![endif]-->
     <link rel="shortcut icon" href="/assets/images/ico/favicon.ico">
 </head>
-
 <body>
+
 <header id="header">
+    <div class="messages">
+        <div class="message success added-to-cart">
+            <p>Produsul a fost adaugat cu succes.</p>
+        </div>
+
+        <div class="message success removed-from-cart">
+            <p>Produsul a fost sters cu succes.</p>
+        </div>
+
+        <?php if ($this->session->flashdata('success')) { ?>
+            <div class="message success" style="display:block">
+                <p><?= $this->session->flashdata('success') ?></p>
+            </div>
+        <?php } ?>
+
+        <?php if ($this->session->flashdata('error')) { ?>
+            <div class="message error" style="display:block">
+                <p><?= $this->session->flashdata('error') ?></p>
+            </div>
+        <?php } ?>
+    </div>
+
     <div class="header_top">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-8">
                     <div class="contactinfo">
                         <ul class="nav nav-pills">
                             <?php if (!empty($general->mobile)) { ?>
@@ -44,7 +66,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <div class="social-icons pull-right">
                         <ul class="nav navbar-nav">
                             <?php if (!empty($general->link_facebook)) { ?>
@@ -68,7 +90,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="logo pull-left">
-                        <a href="/" style="font-size: 30px;color: #65AE17;">Ansilvex</a>
+                        <a href="/">Ansilvex</a>
                     </div>
                     <div class="btn-group pull-right">
                         <div class="btn-group">
@@ -77,8 +99,8 @@
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Romana</a></li>
-                                <li><a href="#">Rusa</a></li>
+                                <li><a href="<?php echo site_url('language/change/romanian'); ?>">Romana</a></li>
+                                <li><a href="<?php echo site_url('language/change/russian'); ?>">Rusa</a></li>
                             </ul>
                         </div>
                     </div>
@@ -115,8 +137,15 @@
                     <div class="mainmenu pull-left">
                         <ul class="nav navbar-nav collapse navbar-collapse">
                             <li><a href="<?php echo site_url('products'); ?>" >Produse</a></li>
-                            <li><a href="<?php echo site_url('about'); ?>">Despre noi</a></li>
-                            <li><a href="<?php echo site_url('delivery'); ?>">Livrare</a></li>
+
+                            <?php if (!empty($pages)) { ?>
+                                <?php foreach ($pages as $page) { ?>
+                                    <li>
+                                        <a href="<?php echo site_url(url_title($page->title) . '/' . $page->id); ?>"><?php echo $page->title; ?></a>
+                                    </li>
+                                <?php } ?>
+                            <?php } ?>
+
                             <li><a href="<?php echo site_url('contact'); ?>">Contacteaza-ne</a></li>
                         </ul>
                     </div>

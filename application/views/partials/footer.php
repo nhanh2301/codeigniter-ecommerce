@@ -38,12 +38,15 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-sm-3">
-                    <div class="single-widget">
-                        <h2>Despre Ansilvex</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad aliquam, autem cupiditate doloremque eaque magnam? Delectus, dicta distinctio dolore magnam minus nobis nostrum porro quae quam ratione recusandae unde!</p>
+                <?php if (!empty($general->about)) { ?>
+                    <div class="col-sm-3">
+                        <div class="single-widget">
+                            <h2>Despre Ansilvex</h2>
+
+                            <p><?php echo $general->about; ?></p>
+                        </div>
                     </div>
-                </div>
+                <?php } ?>
 
             </div>
         </div>
