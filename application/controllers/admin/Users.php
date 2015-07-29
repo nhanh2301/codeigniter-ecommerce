@@ -39,7 +39,13 @@ class Users extends Admin {
     public function login()
     {
         if (!empty($_POST)) {
-            $this->session->set_userdata('user', ['email' => $_POST['email']]);
+            $admin = $this->user_model->get_admin();
+
+            if (!empty($admin)) {
+                $this->session->set_userdata('admin_user_id', $admin->id);
+            } else {
+                $this->session->set_flashdata('error', 'Eroare. Verificati va rog datele.');
+            }
             redirect('admin');
         } else {
             $this->load->view('admin/header', $this->data);

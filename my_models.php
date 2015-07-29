@@ -17,6 +17,11 @@
  * @property Page_model $page_model
  * @property Product_model $product_model
  * @property User_model $user_model
+ * @property Filter_category_model $filter_category_model
+ * @property Filter_model $filter_model
+ * @property Filter_relation_model $filter_relation_model
+ * @property Newsletter_model $newsletter_model
+ * @property Offer_model $offer_model
  *
  *
  */

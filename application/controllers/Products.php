@@ -71,6 +71,7 @@ class Products extends Frontend
     public function product($id)
     {
         $this->data['product'] = $this->product_model->get_data_by_id($id);
+        $this->data['comments'] = $this->comment_model->get_data_for(false, $this->data['product']->id);
 
         $this->product_model->update_views($id);
 

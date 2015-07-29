@@ -12,6 +12,7 @@ class Pages extends Frontend
     public function index($id)
     {
         $this->data['page'] = $this->page_model->get_data_by_id($id);
+        $this->data['comments'] = $this->comment_model->get_data_for($this->data['page']->id);
 
         $this->load->view('partials/header', $this->data);
         $this->load->view('page', $this->data);

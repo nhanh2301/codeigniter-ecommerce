@@ -7,8 +7,8 @@ class Product_model extends CI_Model {
     public $price;
     public $image;
     public $active;
-    public $date;
     public $views;
+    public $date;
 
     private $table = 'products';
 

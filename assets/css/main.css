@@ -201,6 +201,9 @@ a#scrollUp i{
   padding-right: 0;
   margin-top: 10px;
 }
+.shop-menu ul li a:hover {
+    background:none;color:#fff
+}
 
 #header {
   background: #65AE17;
@@ -1309,7 +1312,7 @@ h2.title {
   background: #FFFFFF;
   border: 0 none;
   list-style: none outside none;
-  margin: 0 0 20px;
+  margin: 0 0 5px;
   padding: 0;
 }
 
@@ -1321,8 +1324,12 @@ h2.title {
   color: #696763;
   display: block;
   font-family: 'Roboto', sans-serif;
-  font-size: 14px;
+  font-size: 11px;
   padding-right: 15px;
+}
+
+#reviews .comment {
+    margin: 10px 0;
 }
 
 #reviews ul li a i{

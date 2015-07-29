@@ -114,7 +114,11 @@
                                     <span
                                         class="cart-items"><?php echo !empty($cart) ? '(' . count($cart) . ')' : ''; ?></span></a>
                             </li>
-                            <li><a href="<?php echo site_url('login'); ?>"><i class="fa fa-lock"></i> Logare</a></li>
+                            <?php if (!empty($user)) { ?>
+                                <li><a href="<?php echo site_url('user'); ?>"><i class="fa fa-lock"></i> Profil</a></li>
+                            <?php } else { ?>
+                                <li><a href="<?php echo site_url('user/login'); ?>"><i class="fa fa-lock"></i> Logare / Inregistrare</a></li>
+                            <?php } ?>
                         </ul>
                     </div>
                 </div>

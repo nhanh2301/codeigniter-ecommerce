@@ -66,13 +66,9 @@
                                     <?php foreach ($comments as $comment) { ?>
                                         <div class="comment">
                                             <ul>
-                                                <li><i class="fa fa-user"></i><?php echo $comment->user_name; ?></li>
-                                                <li>
-                                                    <i class="fa fa-clock-o"></i> <?php echo date('H : i', strtotime($comment->date)); ?>
-                                                </li>
-                                                <li>
-                                                    <i class="fa fa-calendar"></i> <?php echo date('d m, Y', strtotime($comment->date)); ?>
-                                                </li>
+                                                <li><a><i class="fa fa-user"></i><?php echo $comment->name; ?></a></li>
+                                                <li><a><i class="fa fa-clock-o"></i><?php echo date('H : i', strtotime($comment->date)); ?></a></li>
+                                                <li><a><i class="fa fa-calendar"></i><?php echo date('d M, Y', strtotime($comment->date)); ?></a></li>
                                             </ul>
                                             <p><?php echo $comment->message; ?></p>
                                         </div>
@@ -86,13 +82,18 @@
                                     <p><b>Adauga un comentariu</b></p>
 
                                     <form action="<?php echo site_url('user/comment'); ?>" method="post">
-										<span>
+                                        <input type="hidden" name="product_id" value="<?php echo $product->id; ?>" />
+
+                                        <?php if (empty($user)) { ?>
+                                            <span>
 											<input type="text" placeholder="<?php echo lang('msg_name'); ?>"/>
 											<input type="email" placeholder="<?php echo lang('msg_email'); ?>"/>
 										</span>
+                                        <?php } ?>
+
                                         <textarea name="message" placeholder="<?php echo lang('msg_message'); ?>"></textarea>
 
-                                        <button type="button" class="btn btn-default pull-right"><?php echo lang('msg_send'); ?></button>
+                                        <button type="submit" class="btn btn-default pull-right"><?php echo lang('msg_send'); ?></button>
                                     </form>
                                 </div>
                             </div>

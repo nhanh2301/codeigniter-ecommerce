@@ -30,6 +30,9 @@
                         <li class="<?php echo in_array('products', $this->uri->segment_array()) ? 'active' : ''; ?>"><a href="<?php echo site_url('admin/products'); ?>"><span>Produse</span></a></li>
                         <li class="<?php echo in_array('orders', $this->uri->segment_array()) ? 'active' : ''; ?>"><a href="<?php echo site_url('admin/orders'); ?>"><span>Comenzi</span></a></li>
                         <li class="<?php echo in_array('pages', $this->uri->segment_array()) ? 'active' : ''; ?>"><a href="<?php echo site_url('admin/pages'); ?>"><span>Pagini</span></a></li>
+                        <li class="<?php echo in_array('pages', $this->uri->segment_array()) ? 'active' : ''; ?>"><a href="<?php echo site_url('admin/filters'); ?>"><span>Filtre</span></a></li>
+                        <li class="<?php echo in_array('pages', $this->uri->segment_array()) ? 'active' : ''; ?>"><a href="<?php echo site_url('admin/comments'); ?>"><span>Comentarii</span></a></li>
+                        <li class="<?php echo in_array('pages', $this->uri->segment_array()) ? 'active' : ''; ?>"><a href="<?php echo site_url('admin/newsletter'); ?>"><span>Newsletter</span></a></li>
                         <li class="confirm"><a href="<?php echo site_url('admin/users/logout'); ?>"><span>Iesire</span></a></li>
                     </ul>
                 </nav>

@@ -143,5 +143,10 @@ $autoload['model'] = array(
     'Order_model' => 'order_model',
     'Page_model' => 'page_model',
     'Product_model' => 'product_model',
-    'User_model' => 'user_model'
+    'User_model' => 'user_model',
+    'Comment_model' => 'comment_model',
+    'Filter_category_model' => 'filter_category_model',
+    'Filter_model' => 'filter_model',
+    'Filter_relation_model' => 'filter_relation_model',
+    'Newsletter_model' => 'newsletter_model'
 );

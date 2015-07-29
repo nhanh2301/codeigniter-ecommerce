@@ -29,52 +29,72 @@
                 </div>
 
                 <div class="response-area">
-                    <h2>3 Comentarii</h2>
+                    <h2><?php echo !empty($comments) ? count($comments) : '0'; ?> Comentarii</h2>
                     <ul class="media-list">
-                        <li class="media">
-                            <div class="media-body">
-                                <ul class="sinlge-post-meta">
-                                    <li><i class="fa fa-user"></i>Janis Gallagher</li>
-                                    <li><i class="fa fa-clock-o"></i> 1:33 pm</li>
-                                    <li><i class="fa fa-calendar"></i> DEC 5, 2013</li>
-                                </ul>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            </div>
-                        </li>
+                        <?php if (!empty($comments)) { ?>
+                            <?php foreach ($comments as $comment) { ?>
+                                <li class="media">
+                                    <div class="media-body">
+                                        <ul class="sinlge-post-meta">
+                                            <li><i class="fa fa-user"></i> <?php echo $comment->name; ?></li>
+                                            <li><i class="fa fa-clock-o"></i> <?php echo date('H : i', strtotime($page->date)); ?></li>
+                                            <li><i class="fa fa-calendar"></i> <?php echo date('d M, Y', strtotime($page->date)); ?></li>
+                                        </ul>
+                                        <p><?php echo $comment->message; ?></p>
+                                    </div>
+                                </li>
+                            <?php } ?>
+                        <?php } ?>
                     </ul>
                 </div>
-                <div class="replay-box">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <h2>Lasa un comentariu</h2>
+                <form method="post" action="<?php echo site_url('user/comment'); ?>" class="replay-box">
+                    <input type="hidden" name="page_id" value="<?php echo $page->id; ?>" />
 
-                            <form>
-                                <div class="blank-arrow">
-                                    <label>Nume</label>
+                    <?php if (!empty($user)) { ?>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="text-area">
+                                    <div class="blank-arrow">
+                                        <label>Mesajul tau</label>
+                                    </div>
+                                    <span>*</span>
+                                    <textarea name="message" rows="5"></textarea>
+                                    <button tyoe="submit" class="btn btn-primary">Comenteaza</button>
                                 </div>
-                                <span>*</span>
-                                <input type="text">
-
-                                <div class="blank-arrow">
-                                    <label>Email</label>
-                                </div>
-                                <span>*</span>
-                                <input type="text">
-                            </form>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="text-area">
-                                <div class="blank-arrow">
-                                    <label>Mesajul tau</label>
-                                </div>
-                                <span>*</span>
-                                <textarea name="message" rows="5"></textarea>
-                                <a class="btn btn-primary" href="">Comenteaza</a>
                             </div>
                         </div>
-                    </div>
+                    <?php } else { ?>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <h2>Lasa un comentariu</h2>
+
+                                <form>
+                                    <div class="blank-arrow">
+                                        <label>Nume</label>
+                                    </div>
+                                    <span>*</span>
+                                    <input type="text" name="name" required>
+
+                                    <div class="blank-arrow">
+                                        <label>Email</label>
+                                    </div>
+                                    <span>*</span>
+                                    <input type="text" name="email" required>
+                                </form>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="text-area">
+                                    <div class="blank-arrow">
+                                        <label>Mesajul tau</label>
+                                    </div>
+                                    <span>*</span>
+                                    <textarea name="message" rows="5" required></textarea>
+                                    <button tyoe="submit" class="btn btn-primary">Comenteaza</button>
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?>
+
                 </div>
             </div>
         </div>

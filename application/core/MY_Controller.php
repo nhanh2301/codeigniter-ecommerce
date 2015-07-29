@@ -12,13 +12,14 @@ class Admin extends CI_Controller {
         $this->data['general'] = $this->general_model->get_data();
         $this->data['categories'] = $this->category_model->get_data();
 
-        if (empty($this->session->userdata['user']) && !in_array('login', $this->uri->segment_array())) {
+        if (empty($this->session->userdata['admin_user_id']) && !in_array('login', $this->uri->segment_array())) {
             redirect('admin/users/login');
         }
     }
 }
 
 class Frontend extends CI_Controller {
+
 
     public $data;
 
@@ -42,5 +43,6 @@ class Frontend extends CI_Controller {
         $this->data['general'] = $this->general_model->get_data();
         $this->data['categories'] = $this->category_model->get_data_with_products();
         $this->data['pages'] = $this->page_model->get_data();
+        $this->data['user'] = $this->user_model->get_user();
     }
 }
