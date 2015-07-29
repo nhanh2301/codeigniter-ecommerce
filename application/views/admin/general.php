@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" xmlns="http://www.w3.org/1999/html">
     <div class="col-lg-12">
         <form method="post" action="<?php echo site_url('admin/general/save'); ?>">
             <section class="panel">
@@ -17,7 +17,7 @@
                     <div class="form-group">
                         <label>Despre</label>
                         <textarea name="General[about]" class="form-control"
-                                  rows="3"><<?php echo !empty($general->about) ? $general->about : ''; ?></textarea>
+                                  rows="3"><?php echo !empty($general->about) ? $general->about : ''; ?></textarea>
                     </div>
                     <div class="form-group">
                         <label>Telefon</label>
@@ -56,11 +56,14 @@
                                class="form-control" placeholder="" required>
                     </div>
                     <div class="form-group">
-                        <label>Livrarea</label>
-                        <input name="General[delivery]"
-                               value="<?php echo !empty($general->delivery) ? $general->delivery : ''; ?>" type="text"
-                               class="form-control"
-                               placeholder="Text afisat la comanda. ex: Livrare gratis de la 200 Lei." required>
+                        <label>Livrarea (la finalizarea comenzii)</label>
+                        <textarea name="General[delivery]"
+                                  class="form-control"><?php echo !empty($general->delivery) ? $general->delivery : ''; ?></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Livrarea (pagina produsului)</label>
+                        <textarea name="General[delivery]"
+                               class="form-control"><?php echo !empty($general->product_delivery) ? $general->product_delivery : ''; ?></textarea>
                     </div>
                     <div class="form-group">
                         <label>Google analytics</label>

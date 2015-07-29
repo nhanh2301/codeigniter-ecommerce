@@ -47,7 +47,11 @@
                     <div class="col-sm-12">
                         <ul class="nav nav-tabs">
                             <li class="active"><a href="#details" data-toggle="tab">Detalii</a></li>
-                            <li><a href="#delivery" data-toggle="tab">Livrare</a></li>
+
+                            <?php if (!empty($general->product_delivery)) { ?>
+                                <li><a href="#delivery" data-toggle="tab">Livrare</a></li>
+                            <?php } ?>
+
                             <li><a href="#reviews" data-toggle="tab">Comentarii <?php echo !empty($comments) ? '('.count($comments).')' : ''; ?></a></li>
                         </ul>
                     </div>

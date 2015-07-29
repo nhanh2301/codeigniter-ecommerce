@@ -43,10 +43,11 @@ class Users extends Admin {
 
             if (!empty($admin)) {
                 $this->session->set_userdata('admin_user_id', $admin->id);
+                redirect('admin');
             } else {
                 $this->session->set_flashdata('error', 'Eroare. Verificati va rog datele.');
+                redirect('admin/users/login');
             }
-            redirect('admin');
         } else {
             $this->load->view('admin/header', $this->data);
             $this->load->view('admin/login', $this->data);

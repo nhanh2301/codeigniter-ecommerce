@@ -24,11 +24,11 @@ class Comment_model extends CI_Model {
         return $query->result();
     }
 
-    public function get_data_for($page_id = false, $product_id = false)
+    public function get_data_for($page_id = null, $product_id = null)
     {
-        if (!empty($page_id)) {
+        if (isset($page_id)) {
             $where_array = ['page_id' => (int) $page_id];
-        } elseif (!empty($product_id)) {
+        } elseif (isset($product_id)) {
             $where_array = ['product_id' => (int) $product_id];
         }
 

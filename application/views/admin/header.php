@@ -69,8 +69,7 @@
                                 <button type="button" class="close" data-dismiss="alert">
                                     <i class="fa fa-times"></i>
                                 </button>
-                                <i class="fa fa-ban-circle"></i>
-                                <strong>Oh snap!</strong> <?php echo $this->session->flashdata('error'); ?>
+                                <i class="fa fa-ban-circle"></i> <?php echo $this->session->flashdata('error'); ?>
                             </div>
                         <?php } ?>
                     </div>
