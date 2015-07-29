@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d3e0b16-d2d7-4611-b73f-e2a8736e483b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ansilvex.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,8 +30,8 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7679697" vertical-offset="0" max-vertical-offset="1449">
-              <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.58259773" vertical-offset="0" max-vertical-offset="1449">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -219,7 +218,13 @@
       <option name="project" value="LOCAL" />
       <updated>1438165427579</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Removed the .idea folder">
+      <created>1438165483365</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1438165483365</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -269,7 +274,8 @@
     </option>
     <MESSAGE value="Theme integrated, Homepage adaptions" />
     <MESSAGE value="Gitignore adaptions for jetbrains application and codeigniter framework" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gitignore adaptions for jetbrains application and codeigniter framework" />
+    <MESSAGE value="Removed the .idea folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed the .idea folder" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -684,8 +690,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7679697" vertical-offset="0" max-vertical-offset="1449">
-          <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.58259773" vertical-offset="0" max-vertical-offset="1449">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
