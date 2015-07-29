@@ -11,21 +11,6 @@ you creatively focus on your project by minimizing the amount of code needed
 for a given task.
 
 *******************
-Release Information
-*******************
-
-This repo contains in-development code for future releases. To download the
-latest stable release please visit the `CodeIgniter Downloads
-<http://www.codeigniter.com/download>`_ page.
-
-**************************
-Changelog and New Features
-**************************
-
-You can find a list of all changes for each release in the `user
-guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
-
-*******************
 Server Requirements
 *******************
 
@@ -59,11 +44,12 @@ Resources
 -  `Community Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_
 -  `Community IRC <http://www.codeigniter.com/irc>`_
 
-Report security issues to our `Security Panel <mailto:security@codeigniter.com>`_, thank you.
+*********
+Features
+*********
 
-***************
-Acknowledgement
-***************
-
-The CodeIgniter team would like to thank EllisLab, all the
-contributors to the CodeIgniter project and you, the CodeIgniter user.
+-  `Multilingual`_
+-  `Cateogries & Filters & Products`_
+-  `Simple order system`_
+-  `Simple user & admin authentication`_
+-  `Newsletter`_
