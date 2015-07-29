@@ -230,6 +230,12 @@ switch (ENVIRONMENT)
 	// Name of the "system folder"
 	define('SYSDIR', trim(strrchr(trim(BASEPATH, '/'), '/'), '/'));
 
+    // the cache folder for timthumb library (/img.php)
+    if ( ! is_dir('cache')) {
+        @mkdir('cache');
+    }
+
+
 	// The path to the "application" folder
 	if (is_dir($application_folder))
 	{
