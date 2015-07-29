@@ -48,8 +48,8 @@ Resources
 Features
 *********
 
--  `Multilingual`_
--  `Cateogries & Filters & Products`_
--  `Simple order system`_
--  `Simple user & admin authentication`_
--  `Newsletter`_
+-  Multilingual
+-  Cateogries & Filters & Products
+-  Simple order system
+-  Simple user & admin authentication
+-  Newsletter
