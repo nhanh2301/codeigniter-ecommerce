@@ -63,6 +63,11 @@
                                placeholder="Text afisat la comanda. ex: Livrare gratis de la 200 Lei." required>
                     </div>
                     <div class="form-group">
+                        <label>Google analytics</label>
+                        <textarea name="General[delivery]" class="form-control"
+                                  placeholder="Script Google Analytics"><?php echo !empty($general->analytics) ? $general->analytics : ''; ?></textarea>
+                    </div>
+                    <div class="form-group">
                         <label>Link Facebook</label>
                         <input name="General[link_facebook]"
                                value="<?php echo !empty($general->link_facebook) ? $general->link_facebook : ''; ?>"
